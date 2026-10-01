@@ -2,6 +2,8 @@
 
 A Discord MCP server (Model Context Protocol) for Claude, ChatGPT and Cursor, built on browser automation: 18 tools to list your servers, read channels and DMs, search history and reply as you. No bot token, no password.
 
+Get started: [docs.reduck.ai](https://docs.reduck.ai)
+
 ## Overview
 
 Reduck is a universal MCP (Model Context Protocol) server: it turns the websites you are signed in to into tools your agent can call, through browser automation in your own Chrome. For Discord, that is a virtual Discord MCP server. Claude, ChatGPT, Cursor or any other MCP client gets 18 Discord tools to list your servers, read channels, threads and DMs, search a server's history, and reply or post, as your own account.
