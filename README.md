@@ -1,13 +1,6 @@
-# Discord MCP server (Model Context Protocol) for Claude and ChatGPT: read and search your servers and DMs, no bot token (2026)
+# Discord MCP
 
 A Discord MCP server (Model Context Protocol) for Claude, ChatGPT and Cursor, built on browser automation: 18 tools to list your servers, read channels and DMs, search history and reply as you. No bot token, no password.
-
-- Category: Messaging
-- Websites: Discord
-
-## Prompt template
-
-Find what was said about `topic` in my Discord servers and DMs this week, then summarize it.
 
 ## Overview
 
@@ -107,16 +100,6 @@ Every script answers structured data: authors, timestamps, message urls and the 
 - Founders and community managers who live in Discord
 - Developers who follow many open-source and product servers
 - Anyone who wants to ask "what did I miss?" across servers and DMs
-
-## Scripts used
-
-- [List servers](https://reduck.ai/explore/scripts/reduck/discord.com/list_servers.md): Discord
-- [List channels](https://reduck.ai/explore/scripts/reduck/discord.com/list_channels.md): Discord
-- [List direct messages](https://reduck.ai/explore/scripts/reduck/discord.com/list_dms.md): Discord
-- [Read messages](https://reduck.ai/explore/scripts/reduck/discord.com/read_messages.md): Discord
-- [Search server messages](https://reduck.ai/explore/scripts/reduck/discord.com/search_messages.md): Discord
-- [Reply to a message](https://reduck.ai/explore/scripts/reduck/discord.com/reply_to_message.md): Discord
-- [Send a direct message](https://reduck.ai/explore/scripts/reduck/discord.com/send_dm.md): Discord
 
 ## FAQ
 
