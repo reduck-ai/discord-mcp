@@ -2,6 +2,8 @@
 
 Discord has no API for your own account: a bot sees only the servers it is invited to, and never your DMs. This Discord MCP server (Model Context Protocol) lets Claude, ChatGPT or Cursor list your servers, read channels and DMs, search history and reply as you, with no bot token and no password.
 
+- Updated: 2026-10-02
+
 ![One integration, every website](https://docs.reduck.ai/overview/one-integration-every-website.png)
 
 [Reduck MCP](https://docs.reduck.ai) gives your agent reusable browser scripts for the sites that have no API. They run in your own Chrome, through the Reduck extension, where you are already signed in: no credentials exposed, and no bot detection.
