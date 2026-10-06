@@ -10,7 +10,7 @@
 			"address": "@reduck/discord.com/list_channels",
 			"path": "scripts/discord.com/list_channels.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/list_channels",
-			"lastmod": "2026-10-01"
+			"lastmod": "2026-10-05"
 		},
 		{
 			"address": "@reduck/discord.com/list_dms",
@@ -22,13 +22,13 @@
 			"address": "@reduck/discord.com/list_servers",
 			"path": "scripts/discord.com/list_servers.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/list_servers",
-			"lastmod": "2026-10-01"
+			"lastmod": "2026-10-05"
 		},
 		{
 			"address": "@reduck/discord.com/read_messages",
 			"path": "scripts/discord.com/read_messages.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/read_messages",
-			"lastmod": "2026-10-01"
+			"lastmod": "2026-10-05"
 		},
 		{
 			"address": "@reduck/discord.com/reply_to_message",
