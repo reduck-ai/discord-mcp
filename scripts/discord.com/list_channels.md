@@ -4,7 +4,7 @@ Automatically list Discord channels on discord.com. You get the categories and c
 
 - Site: discord.com
 - Address: `reduck/discord.com/list_channels`
-- Updated: 2026-10-05 (v7)
+- Updated: 2026-10-06 (v9)
 - Author: Reduck AI (reduck)
 
 ## About
