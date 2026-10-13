@@ -1,10 +1,10 @@
 # Search Discord server messages
 
-Automatically search Discord server messages on discord.com. Search a Discord server's message history, newest first, using Discord's own search, as the signed-in account: it reaches every server that account is in, with no bot to invite. The query accepts Discord's search syntax (plain words, or filters like from:, in:, has:, before:, during:), so scoping to a channel or author is done in the query itself. Returns per hit: messageId, channelId, url, author (id, handle, name), content, timestamp, plus total_results as Discord reports it and complete, which is false when more hits exist beyond the page read. Discord returns search hits with surrounding context messages; only the hits themselves are returned. It searches one server at a time; for direct messages (DMs), list the conversations with discord.com/list_dms and read one with discord.com/read_messages.
+Automatically search Discord server messages on discord.com. Search one Discord server's message history with Discord's own search, as the signed-in account, newest first. Search by words (content), and narrow by authors, channels, mentioned users and content type, each given as ids: get user ids from discord.com/get_member_list and channel ids from discord.com/list_channels. Returns one page of up to 25 matching messages with their author, text, time and link, Discord's total count of matches, and next_offset to read the next page (null on the last one). Fails with a clear error when the browser is not signed in to Discord, when the account is not a member of the server or can see no text channel in it, or when Discord is still indexing the server. Direct messages are not searched.
 
 - Site: discord.com
 - Address: `reduck/discord.com/search_messages`
-- Updated: 2026-10-01 (v9)
+- Updated: 2026-10-12 (v21)
 - Author: Reduck AI (reduck)
 
 ## Run it
@@ -17,24 +17,29 @@ npx @reduck-ai/cli@latest run --script reduck/discord.com/search_messages
 
 ## Input
 
-- `query` (string, required): What to search for. Discord's own search syntax works here, e.g. 'deploy', 'from:someone deploy', 'in:general has:link'. Always use the English keywords (from:/in:/has:/mentions:) regardless of the signed-in account's Discord display language -- the script translates them internally.
-- `guildId` (string, required): Server id to search, e.g. from discord.com/list_servers.
-- `limit` (integer, optional): How many hits to return, newest first. Discord serves 25 per page and this reads one page, so 25 is the maximum; total_results tells you how many exist.
+- `guildId` (string, required): Server id to search, from discord.com/list_servers.
+- `has` (array, optional): Only messages that include this kind of content.
+- `offset` (integer, optional): How many hits to skip: pass next_offset of the previous answer to read the next page.
+- `content` (string, optional): Words the messages must contain. Optional when a filter is given.
+- `mentions` (array, optional): Only messages that mention these users (user ids).
+- `authorIds` (array, optional): Only messages sent by these users (user ids, from discord.com/get_member_list).
+- `channelIds` (array, optional): Only messages in these channels (channel ids, from discord.com/list_channels).
 
 ## Output
 
 - `count` (integer, required)
-- `query` (string, required)
+- `offset` (integer, required)
 - `guildId` (string, required)
 - `messages` (array, required)
-- `complete` (boolean, optional): True when every hit Discord reported was returned; false when more exist beyond this page.
-- `total_results` (integer | null, optional): Discord's own count of matching messages, which can exceed the number returned.
+- `complete` (boolean, optional): True when no hits remain after this page.
+- `next_offset` (integer | null, optional): Pass as offset to read the next page; null on the last page.
+- `total_results` (integer | null, optional): Discord's own count of matching messages.
 
 ## FAQ
 
 ### What does "Search Discord server messages" do?
 
-Search a Discord server's message history, newest first, using Discord's own search, as the signed-in account: it reaches every server that account is in, with no bot to invite. The query accepts Discord's search syntax (plain words, or filters like from:, in:, has:, before:, during:), so scoping to a channel or author is done in the query itself. Returns per hit: messageId, channelId, url, author (id, handle, name), content, timestamp, plus total_results as Discord reports it and complete, which is false when more hits exist beyond the page read. Discord returns search hits with surrounding context messages; only the hits themselves are returned. It searches one server at a time; for direct messages (DMs), list the conversations with discord.com/list_dms and read one with discord.com/read_messages.
+Search one Discord server's message history with Discord's own search, as the signed-in account, newest first. Search by words (content), and narrow by authors, channels, mentioned users and content type, each given as ids: get user ids from discord.com/get_member_list and channel ids from discord.com/list_channels. Returns one page of up to 25 matching messages with their author, text, time and link, Discord's total count of matches, and next_offset to read the next page (null on the last one). Fails with a clear error when the browser is not signed in to Discord, when the account is not a member of the server or can see no text channel in it, or when Discord is still indexing the server. Direct messages are not searched.
 
 ### How do I automatically search Discord server messages on discord.com?
 
@@ -46,11 +51,11 @@ You do not need one. "Search Discord server messages" drives the real discord.co
 
 ### What information do I need to provide?
 
-Required: guildId, query. Optional: limit.
+Required: guildId. Optional: has, offset, content, mentions, authorIds, channelIds.
 
 ### What does it return?
 
-It returns count, query, guildId, complete, messages, total_results.
+It returns count, offset, guildId, complete, messages, next_offset, total_results.
 
 ### Do I need to be logged in to discord.com?
 
