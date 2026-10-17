@@ -4,7 +4,7 @@ Automatically search Discord server messages on discord.com. Search one Discord 
 
 - Site: discord.com
 - Address: `reduck/discord.com/search_messages`
-- Updated: 2026-10-14 (v22)
+- Updated: 2026-10-16 (v28)
 - Author: Reduck AI (reduck)
 
 ## Run it
@@ -21,17 +21,19 @@ npx @reduck-ai/cli@latest run --script reduck/discord.com/search_messages
 - `has` (array, optional): Only messages that include this kind of content.
 - `offset` (integer, optional): How many hits to skip: pass next_offset of the previous answer to read the next page.
 - `content` (string, optional): Words the messages must contain. Optional when a filter is given.
+- `queries` (array, optional): Run several searches in this server in one run (max 20), instead of the single-query fields above. Each item takes the same fields. Returns {guildId, results} with one result per query, in order. A query Discord is still indexing (202) gets error and retry_after; on the first rate limit (429) no further query is sent and the rest come back rate_limited with the same retry_after.
 - `mentions` (array, optional): Only messages that mention these users (user ids).
 - `authorIds` (array, optional): Only messages sent by these users (user ids, from discord.com/get_member_list).
 - `channelIds` (array, optional): Only messages in these channels (channel ids, from discord.com/list_channels).
 
 ## Output
 
-- `count` (integer, required)
-- `offset` (integer, required)
 - `guildId` (string, required)
-- `messages` (array, required)
+- `count` (integer, optional)
+- `offset` (integer, optional)
+- `results` (array, optional): Batch mode only: one result per query, in order.
 - `complete` (boolean, optional): True when no hits remain after this page.
+- `messages` (any, optional)
 - `next_offset` (integer | null, optional): Pass as offset to read the next page; null on the last page.
 - `total_results` (integer | null, optional): Discord's own count of matching messages.
 
@@ -51,11 +53,11 @@ You do not need one. "Search Discord server messages" drives the real discord.co
 
 ### What information do I need to provide?
 
-Required: guildId. Optional: has, offset, content, mentions, authorIds, channelIds.
+Required: guildId. Optional: has, offset, content, queries, mentions, authorIds, channelIds.
 
 ### What does it return?
 
-It returns count, offset, guildId, complete, messages, next_offset, total_results.
+It returns count, offset, guildId, results, complete, messages, next_offset, total_results.
 
 ### Do I need to be logged in to discord.com?
 

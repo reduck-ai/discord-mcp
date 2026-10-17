@@ -28,7 +28,7 @@
 			"address": "@reduck/discord.com/read_messages",
 			"path": "scripts/discord.com/read_messages.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/read_messages",
-			"lastmod": "2026-10-05"
+			"lastmod": "2026-10-16"
 		},
 		{
 			"address": "@reduck/discord.com/reply_to_message",
@@ -40,7 +40,7 @@
 			"address": "@reduck/discord.com/search_messages",
 			"path": "scripts/discord.com/search_messages.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/search_messages",
-			"lastmod": "2026-10-14"
+			"lastmod": "2026-10-16"
 		},
 		{
 			"address": "@reduck/discord.com/send_dm",
