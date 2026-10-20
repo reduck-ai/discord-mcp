@@ -1,5 +1,7 @@
 # Discord MCP
 
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/reduck-ai/discord-mcp)
+
 Discord has no API for your own account: a bot sees only the servers it is invited to, and never your DMs. This Discord MCP server (Model Context Protocol) lets Claude, ChatGPT or Cursor list your servers, read channels and DMs, search history and reply as you, with no bot token and no password.
 
 - Updated: 2026-10-02
