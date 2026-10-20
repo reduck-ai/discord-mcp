@@ -4,7 +4,7 @@ Automatically read Discord messages on discord.com. Pull the latest messages of 
 
 - Site: discord.com
 - Address: `reduck/discord.com/read_messages`
-- Updated: 2026-10-16 (v17)
+- Updated: 2026-10-19 (v21)
 - Author: Reduck AI (reduck)
 
 ## About
@@ -21,17 +21,15 @@ npx @reduck-ai/cli@latest run --script reduck/discord.com/read_messages
 
 ## Input
 
-- `limit` (integer, optional): How many messages to return per channel, newest first. Fewer come back when the channel is shorter.
-- `channelUrl` (string, optional): Full channel URL: https://discord.com/channels/<guildId>/<channelId> for a server channel, or https://discord.com/channels/@me/<channelId> for a direct message (from discord.com/list_dms).
-- `channelUrls` (array, optional): Read several channels in one run (max 5), instead of channelUrl. Same URL forms. Channels after the first are read 2-5 s apart. Returns {results} with one result per channel, in order. A channel this account cannot read gets error on its result; once Discord rate-limits (429) the remaining channels are not read and come back with error "rate_limited" and retry_after.
+- `channelUrl` (string, required): Full channel URL: https://discord.com/channels/<guildId>/<channelId> for a server channel, or https://discord.com/channels/@me/<channelId> for a direct message (from discord.com/list_dms).
+- `limit` (integer, optional): How many messages to return, newest first. Fewer come back when the channel is shorter.
 
 ## Output
 
-- `count` (integer, optional)
-- `results` (array, optional): Batch mode only: one result per channelUrls entry, in order.
-- `complete` (boolean, optional): True when the whole channel history is in messages (Discord returned a short batch at the top). False when limit stopped the read first, or when Discord stopped answering scrolls.
-- `messages` (any, optional)
-- `channelId` (string | null, optional)
+- `count` (integer, required)
+- `complete` (boolean, required): True when the whole channel history is in messages (Discord returned a short batch at the top). False when limit stopped the read first, or when Discord stopped answering scrolls.
+- `messages` (any, required)
+- `channelId` (string | null, required)
 
 ## Example output
 
@@ -40,17 +38,6 @@ Shape only: placeholder values generated from the output schema, not a real run.
 ```json
 {
   "count": 3,
-  "results": [
-    {
-      "count": 3,
-      "error": "…",
-      "complete": true,
-      "messages": "…",
-      "channelId": "abc123",
-      "channelUrl": "https://example.com/item/123",
-      "retry_after": 3.5
-    }
-  ],
   "complete": true,
   "messages": "…",
   "channelId": "abc123"
@@ -61,7 +48,7 @@ Shape only: placeholder values generated from the output schema, not a real run.
 
 ### What does "Read Discord messages" do?
 
-Reads the most recent messages of a Discord channel or direct message (author, timestamp, text), newest first, scrolling up to load more until the requested count. Requires being logged in. A DM or group DM is read the same way: pass its url from discord.com/list_dms. It also reads a thread or a forum post, since both are channels in their own right: pass the post's url (from discord.com/list_forum_posts) and you get its replies plus the opening post, newest first — there is no separate thread-reading script. To list the posts of a forum channel rather than its messages, use discord.com/list_forum_posts instead.
+Reads the most recent messages of one Discord channel or direct message (author, timestamp, text), newest first, loading older ones until the requested count; complete says whether the whole history came back. Requires being signed in. A DM or group DM is read the same way: pass its url from discord.com/list_dms. It also reads a thread or a forum post, since both are channels in their own right: pass the post's url (from discord.com/list_forum_posts). To list the posts of a forum channel rather than its messages, use discord.com/list_forum_posts. To read several channels, run the script once per channel.
 
 ### How do I automatically read Discord messages on discord.com?
 
@@ -73,11 +60,11 @@ You do not need one. "Read Discord messages" drives the real discord.com pages i
 
 ### What information do I need to provide?
 
-Optional: limit, channelUrl, channelUrls.
+Required: channelUrl. Optional: limit.
 
 ### What does it return?
 
-It returns count, results, complete, messages, channelId.
+It returns count, complete, messages, channelId.
 
 ### Do I need to be logged in to discord.com?
 
