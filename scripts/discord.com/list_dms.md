@@ -4,7 +4,7 @@ Automatically list Discord direct messages on discord.com. Lists the direct mess
 
 - Site: discord.com
 - Address: `reduck/discord.com/list_dms`
-- Updated: 2026-10-01 (v6)
+- Updated: 2026-10-20 (v7)
 - Author: Reduck AI (reduck)
 
 ## Run it

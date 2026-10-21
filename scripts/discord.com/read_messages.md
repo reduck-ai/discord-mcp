@@ -4,7 +4,7 @@ Automatically read Discord messages on discord.com. Pull the latest messages of 
 
 - Site: discord.com
 - Address: `reduck/discord.com/read_messages`
-- Updated: 2026-10-19 (v21)
+- Updated: 2026-10-20 (v23)
 - Author: Reduck AI (reduck)
 
 ## About
@@ -21,8 +21,9 @@ npx @reduck-ai/cli@latest run --script reduck/discord.com/read_messages
 
 ## Input
 
-- `channelUrl` (string, required): Full channel URL: https://discord.com/channels/<guildId>/<channelId> for a server channel, or https://discord.com/channels/@me/<channelId> for a direct message (from discord.com/list_dms).
+- `url` (string, optional): Same as channelUrl, under the name discord.com/list_dms returns it. Pass one of channelUrl or url.
 - `limit` (integer, optional): How many messages to return, newest first. Fewer come back when the channel is shorter.
+- `channelUrl` (string, optional): Full channel URL: https://discord.com/channels/<guildId>/<channelId> for a server channel, or https://discord.com/channels/@me/<channelId> for a direct message (from discord.com/list_dms).
 
 ## Output
 
@@ -60,7 +61,7 @@ You do not need one. "Read Discord messages" drives the real discord.com pages i
 
 ### What information do I need to provide?
 
-Required: channelUrl. Optional: limit.
+Optional: url, limit, channelUrl.
 
 ### What does it return?
 
