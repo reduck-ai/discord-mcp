@@ -1,8 +1,8 @@
 # Discord MCP
 
-Discord has no API for your own account: a bot sees only the servers it is invited to, and never your DMs. This Discord MCP server (Model Context Protocol) lets Claude, ChatGPT or Cursor list your servers, read channels and DMs, search history and reply as you, with no bot token and no password.
+A Discord MCP server that posts as your own account, not as a bot. Bot-token MCPs reply as a bot and never see your DMs; selfbot MCPs ask for your user token. Reduck lets Claude, ChatGPT or Cursor read your servers and DMs, search history and reply as you, with no bot token, no user token and no password.
 
-- Updated: 2026-10-02
+- Updated: 2026-10-21
 
 ![One integration, every website](https://docs.reduck.ai/overview/one-integration-every-website.png)
 
@@ -90,18 +90,18 @@ Every script answers structured data: authors, timestamps, message urls and the 
 - **Nothing runs on its own.** A script runs only when you or your agent calls it, one at a time. There is no process that stays connected to Discord.
 - **A write is checked.** `send_dm` returns the recipient it resolved, so a message is never sent to a near-name match; `delete_channel` checks that Discord's confirmation names the channel that was asked for.
 
-## Bot-token MCP or Reduck
+## Bot-token MCP, selfbot MCP or Reduck
 
-| | Bot-token Discord MCP | Reduck |
-|---|---|---|
-| Setup | Developer Portal, intents, a bot invited to each server | One MCP URL, and stay signed in to Discord in Chrome |
-| Servers it sees | Only those the bot was invited to | Every server you are in |
-| Your DMs | No | Yes, one-to-one and group |
-| Search | A scan of one channel at a time | Discord's own search, a whole server at once |
-| Acts as | The bot | You |
-| Runs | Always on, on its own | Only when you or your agent asks |
+| | Bot-token Discord MCP | Selfbot Discord MCP | Reduck |
+|---|---|---|---|
+| Setup | Developer Portal, intents, a bot invited to each server | Your Discord user token in the MCP config | One MCP URL, and stay signed in to Discord in Chrome |
+| Servers it sees | Only those the bot was invited to | Every server you are in | Every server you are in |
+| Your DMs | No | Yes | Yes, one-to-one and group |
+| Replies show up as | The bot, with a bot tag | You | You |
+| Your secret | A bot token | Your user token, which works like your password | None: Reduck never receives your token or password |
+| Runs | Always on, on its own | A local process, connected while it runs | Only when you or your agent asks |
 
-**Use a bot** when you own the server and want an assistant that is always on: that is the route Discord designs for. **Use Reduck** when you want your own DMs and the servers you are in, read only when you ask, from your own browser. Discord restricts [automated user accounts](https://support.discord.com/hc/en-us/articles/115002192352-Automated-User-Accounts-Self-Bots): read its rules and decide whether this fits how you use Discord.
+**Use a bot** when you own the server and want an assistant that is always on: that is the route Discord designs for. **Use Reduck** when you want your agent to read and reply as you, in your DMs and the servers you are in, only when you ask, from your own browser. To have your agent draft replies that you approve before they are sent, see [a Discord AI agent that replies as you](/use-cases/discord-ai-agent-reply-as-you). Discord restricts [automated user accounts](https://support.discord.com/hc/en-us/articles/115002192352-Automated-User-Accounts-Self-Bots): read its rules and decide whether this fits how you use Discord.
 
 ## Who it's for
 
@@ -130,6 +130,14 @@ Not with Discord's search box. Search runs on a server, one server per call. For
 ### Do I need a bot token, a password or developer mode?
 
 No. There is no application to create, no bot to invite, no token to paste and no password to give. You stay signed in to Discord in your own Chrome, and the Reduck extension runs each script there.
+
+### Is there a Discord MCP that posts as my own account instead of a bot?
+
+Yes, two kinds. Selfbot MCP servers such as discord.py-self-mcp or discord-self-mcp connect with your Discord user token: you copy it from your browser (or their setup script reads it) and put it in your MCP config. Reduck takes no token: it drives the Discord tab you are already signed in to, in your own Chrome. Both act as your account, so your replies show your name, not a bot tag.
+
+### Is Reduck a selfbot?
+
+Not in the usual sense: a selfbot is a program that logs in with your user token and stays connected to Discord, often answering on its own. Reduck has no token and no connection of its own, and a script runs only when you or your agent calls it. It is still automation of your user account, which Discord's terms restrict, so we cannot promise Discord will never flag it.
 
 ### How is it different from a Discord MCP that logs in with my email and password?
 

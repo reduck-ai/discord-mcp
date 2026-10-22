@@ -4,13 +4,13 @@
 		{
 			"path": "README.md",
 			"url": "https://reduck.ai/use-cases/discord-mcp",
-			"lastmod": "2026-10-02"
+			"lastmod": "2026-10-21"
 		},
 		{
 			"address": "@reduck/discord.com/list_channels",
 			"path": "scripts/discord.com/list_channels.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/list_channels",
-			"lastmod": "2026-10-19"
+			"lastmod": "2026-10-21"
 		},
 		{
 			"address": "@reduck/discord.com/list_dms",
