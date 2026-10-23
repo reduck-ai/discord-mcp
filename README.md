@@ -2,7 +2,7 @@
 
 A Discord MCP server that posts as your own account, not as a bot. Bot-token MCPs reply as a bot and never see your DMs; selfbot MCPs ask for your user token. Reduck lets Claude, ChatGPT or Cursor read your servers and DMs, search history and reply as you, with no bot token, no user token and no password.
 
-- Updated: 2026-10-21
+- Updated: 2026-10-22
 
 ![One integration, every website](https://docs.reduck.ai/overview/one-integration-every-website.png)
 
@@ -101,7 +101,7 @@ Every script answers structured data: authors, timestamps, message urls and the 
 | Your secret | A bot token | Your user token, which works like your password | None: Reduck never receives your token or password |
 | Runs | Always on, on its own | A local process, connected while it runs | Only when you or your agent asks |
 
-**Use a bot** when you own the server and want an assistant that is always on: that is the route Discord designs for. **Use Reduck** when you want your agent to read and reply as you, in your DMs and the servers you are in, only when you ask, from your own browser. To have your agent draft replies that you approve before they are sent, see [a Discord AI agent that replies as you](/use-cases/discord-ai-agent-reply-as-you). Discord restricts [automated user accounts](https://support.discord.com/hc/en-us/articles/115002192352-Automated-User-Accounts-Self-Bots): read its rules and decide whether this fits how you use Discord.
+**Use a bot** when you own the server and want an assistant that is always on: that is the route Discord designs for. **Use Reduck** when you want your agent to read and reply as you, in your DMs and the servers you are in, only when you ask, from your own browser. To have your agent read and answer your Discord messages automatically, or after your OK, see [Discord auto reply with your AI agent](/use-cases/discord-auto-reply). Discord restricts [automated user accounts](https://support.discord.com/hc/en-us/articles/115002192352-Automated-User-Accounts-Self-Bots): read its rules and decide whether this fits how you use Discord.
 
 ## Who it's for
 
