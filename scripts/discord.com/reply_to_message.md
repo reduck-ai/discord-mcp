@@ -4,7 +4,7 @@ Automatically reply to a Discord message on discord.com. Reply to a specific Dis
 
 - Site: discord.com
 - Address: `reduck/discord.com/reply_to_message`
-- Updated: 2026-10-02 (v8)
+- Updated: 2026-10-23 (v13)
 - Author: Reduck AI (reduck)
 
 ## Run it

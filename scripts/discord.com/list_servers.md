@@ -4,7 +4,7 @@ Automatically list Discord servers on discord.com. The name and numeric ID of ea
 
 - Site: discord.com
 - Address: `reduck/discord.com/list_servers`
-- Updated: 2026-10-20 (v11)
+- Updated: 2026-10-22 (v12)
 - Author: Reduck AI (reduck)
 
 ## About
