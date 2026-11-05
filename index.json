@@ -28,7 +28,7 @@
 			"address": "@reduck/discord.com/read_messages",
 			"path": "scripts/discord.com/read_messages.md",
 			"url": "https://reduck.ai/explore/scripts/reduck/discord.com/read_messages",
-			"lastmod": "2026-10-22"
+			"lastmod": "2026-11-04"
 		},
 		{
 			"address": "@reduck/discord.com/reply_to_message",

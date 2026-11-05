@@ -4,7 +4,7 @@ Automatically read Discord messages on discord.com. Pull the latest messages of 
 
 - Site: discord.com
 - Address: `reduck/discord.com/read_messages`
-- Updated: 2026-10-22 (v24)
+- Updated: 2026-11-04 (v26)
 - Author: Reduck AI (reduck)
 
 ## About
