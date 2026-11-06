@@ -4,7 +4,7 @@ Automatically read Discord messages on discord.com. Pull the latest messages of 
 
 - Site: discord.com
 - Address: `reduck/discord.com/read_messages`
-- Updated: 2026-11-04 (v26)
+- Updated: 2026-11-05 (v27)
 - Author: Reduck AI (reduck)
 
 ## About
@@ -49,7 +49,7 @@ Shape only: placeholder values generated from the output schema, not a real run.
 
 ### What does "Read Discord messages" do?
 
-Reads the most recent messages of one Discord channel or direct message (author, timestamp, text), newest first, loading older ones until the requested count; complete says whether the whole history came back. Requires being signed in. A DM or group DM is read the same way: pass its url from discord.com/list_dms. It also reads a thread or a forum post, since both are channels in their own right: pass the post's url (from discord.com/list_forum_posts). To list the posts of a forum channel rather than its messages, use discord.com/list_forum_posts. To read several channels, run the script once per channel.
+Reads the most recent messages of one Discord channel or direct message, newest first, loading older ones until the requested count; complete says whether the whole history came back. Each message comes with its author, timestamp, text and edit time, its attachments (file name, link, type, size and image dimensions), its embeds and link previews (title, description, provider, image, thumbnail and video), its stickers, and the message it replies to. Attachment links expire after about a day, so download them soon. Requires being signed in. A DM or group DM is read the same way: pass its url from discord.com/list_dms. It also reads a thread or a forum post, since both are channels in their own right: pass the post's url (from discord.com/list_forum_posts). To list the posts of a forum channel rather than its messages, use discord.com/list_forum_posts. To read several channels, run the script once per channel.
 
 ### How do I automatically read Discord messages on discord.com?
 

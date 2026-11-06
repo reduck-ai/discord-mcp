@@ -2,6 +2,7 @@
 
 A Discord MCP server that posts as your own account, not as a bot. Bot-token MCPs reply as a bot and never see your DMs; selfbot MCPs ask for your user token. Reduck lets Claude, ChatGPT or Cursor read your servers and DMs, search history and reply as you, with no bot token, no user token and no password.
 
+- Product: Reduck MCP
 - Updated: 2026-10-22
 
 ![One integration, every website](https://docs.reduck.ai/overview/one-integration-every-website.png)
