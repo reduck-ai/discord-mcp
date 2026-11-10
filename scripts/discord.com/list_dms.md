@@ -1,10 +1,10 @@
 # List Discord direct messages
 
-Automatically list Discord direct messages on discord.com. Lists the direct messages (DMs) of the signed-in Discord account, one-to-one and group DMs, most recent first, as the Direct Messages sidebar shows them: the conversation's name, its channelId and its url. Pass a conversation's url to discord.com/read_messages to read it. Requires being logged in.
+Automatically list Discord direct messages on discord.com. Lists the direct messages (DMs) of the signed-in Discord account, one-to-one and group DMs, most recent first, as the Direct Messages sidebar shows them: the conversation's name, its channelId, its url, whether it has unread messages (unread) and the number on its sidebar badge (mentionCount, 0 when none; in a DM Discord counts each unread message). Reading the list marks nothing as read. Pass a conversation's url to discord.com/read_messages to read it, or use discord.com/list_unreads for the unread messages themselves. Requires being logged in.
 
 - Site: discord.com
 - Address: `reduck/discord.com/list_dms`
-- Updated: 2026-11-06 (v10)
+- Updated: 2026-11-09 (v11)
 - Author: Reduck AI (reduck)
 
 ## Run it
@@ -28,7 +28,7 @@ npx @reduck-ai/cli@latest run --script reduck/discord.com/list_dms
 
 ### What does "List Discord direct messages" do?
 
-Lists the direct messages (DMs) of the signed-in Discord account, one-to-one and group DMs, most recent first, as the Direct Messages sidebar shows them: the conversation's name, its channelId and its url. Pass a conversation's url to discord.com/read_messages to read it. Requires being logged in.
+Lists the direct messages (DMs) of the signed-in Discord account, one-to-one and group DMs, most recent first, as the Direct Messages sidebar shows them: the conversation's name, its channelId, its url, whether it has unread messages (unread) and the number on its sidebar badge (mentionCount, 0 when none; in a DM Discord counts each unread message). Reading the list marks nothing as read. Pass a conversation's url to discord.com/read_messages to read it, or use discord.com/list_unreads for the unread messages themselves. Requires being logged in.
 
 ### How do I automatically list Discord direct messages on discord.com?
 
