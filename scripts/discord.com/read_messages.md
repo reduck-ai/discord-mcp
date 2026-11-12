@@ -4,7 +4,7 @@ Automatically read Discord messages on discord.com. Pull the latest messages of 
 
 - Site: discord.com
 - Address: `reduck/discord.com/read_messages`
-- Updated: 2026-11-05 (v27)
+- Updated: 2026-11-11 (v29)
 - Author: Reduck AI (reduck)
 
 ## About
@@ -23,14 +23,16 @@ npx @reduck-ai/cli@latest run --script reduck/discord.com/read_messages
 
 - `url` (string, optional): Same as channelUrl, under the name discord.com/list_dms returns it. Pass one of channelUrl or url.
 - `limit` (integer, optional): How many messages to return, newest first. Fewer come back when the channel is shorter.
+- `before` (string, optional): A message id: only messages older than it come back. Pass nextBefore from the previous answer to read further back. Omitted: the newest messages.
 - `channelUrl` (string, optional): Full channel URL: https://discord.com/channels/<guildId>/<channelId> for a server channel, or https://discord.com/channels/@me/<channelId> for a direct message (from discord.com/list_dms).
 
 ## Output
 
 - `count` (integer, required)
-- `complete` (boolean, required): True when the whole channel history is in messages (Discord returned a short batch at the top). False when limit stopped the read first, or when Discord stopped answering scrolls.
+- `complete` (boolean, required): True when every message older than before (or the whole channel) is in messages: the read reached the start of the channel. False when limit stopped it first, or when it ran out of time.
 - `messages` (any, required)
 - `channelId` (string | null, required)
+- `nextBefore` (string | null, required): Pass as before to read the next older messages. Null when complete is true.
 
 ## Example output
 
@@ -41,7 +43,8 @@ Shape only: placeholder values generated from the output schema, not a real run.
   "count": 3,
   "complete": true,
   "messages": "…",
-  "channelId": "abc123"
+  "channelId": "abc123",
+  "nextBefore": "…"
 }
 ```
 
@@ -49,7 +52,7 @@ Shape only: placeholder values generated from the output schema, not a real run.
 
 ### What does "Read Discord messages" do?
 
-Reads the most recent messages of one Discord channel or direct message, newest first, loading older ones until the requested count; complete says whether the whole history came back. Each message comes with its author, timestamp, text and edit time, its attachments (file name, link, type, size and image dimensions), its embeds and link previews (title, description, provider, image, thumbnail and video), its stickers, and the message it replies to. Attachment links expire after about a day, so download them soon. Requires being signed in. A DM or group DM is read the same way: pass its url from discord.com/list_dms. It also reads a thread or a forum post, since both are channels in their own right: pass the post's url (from discord.com/list_forum_posts). To list the posts of a forum channel rather than its messages, use discord.com/list_forum_posts. To read several channels, run the script once per channel.
+Reads the messages of one Discord channel or direct message, newest first, up to limit. To read further back, pass nextBefore from the answer as before: each call goes on from there, so a whole history is read in pages, and complete is true once the start of the channel is reached. before also takes any message id to start from. Each message comes with its author, timestamp, text and edit time, its attachments (file name, link, type, size and image dimensions), its embeds and link previews (title, description, provider, image, thumbnail and video), its stickers, and the message it replies to. Attachment links expire after about a day, so download them soon. Reading marks nothing as read. A long read stops after about 10 minutes with complete false and nextBefore set. Requires being signed in. A DM or group DM is read the same way: pass its url from discord.com/list_dms. It also reads a thread or a forum post, since both are channels in their own right: pass the post's url (from discord.com/list_forum_posts). To list the posts of a forum channel rather than its messages, use discord.com/list_forum_posts. To read several channels, run the script once per channel.
 
 ### How do I automatically read Discord messages on discord.com?
 
@@ -61,11 +64,11 @@ You do not need one. "Read Discord messages" drives the real discord.com pages i
 
 ### What information do I need to provide?
 
-Optional: url, limit, channelUrl.
+Optional: url, limit, before, channelUrl.
 
 ### What does it return?
 
-It returns count, complete, messages, channelId.
+It returns count, complete, messages, channelId, nextBefore.
 
 ### Do I need to be logged in to discord.com?
 
