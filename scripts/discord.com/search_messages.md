@@ -4,7 +4,7 @@ Automatically search Discord server messages on discord.com. Search one Discord 
 
 - Site: discord.com
 - Address: `reduck/discord.com/search_messages`
-- Updated: 2026-11-11 (v37)
+- Updated: 2026-11-13 (v38)
 - Author: Reduck AI (reduck)
 
 ## Run it
